@@ -6,7 +6,7 @@ if (!extension_loaded('memcache')) {
     die('skip memcache extension not loaded');
 }
 if (PHP_VERSION_ID < 80600) {
-    die('skip - PHP 8.6+ only');
+    die('skip PHP 8.6+ only');
 }
 ?>
 --INI--
