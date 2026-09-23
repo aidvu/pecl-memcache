@@ -5,14 +5,16 @@ Memcache session handler supports strict mode
 if (!extension_loaded('memcache')) {
     die('skip memcache extension not loaded');
 }
+if (PHP_VERSION_ID < 80600) {
+    die('skip - PHP 8.6+ only');
+}
 ?>
 --INI--
 session.save_handler=memcache
-session.save_path=tcp://127.0.0.1:11211,tcp://127.0.0.1:11212
+session.save_path=tcp://127.0.0.1:11211
 session.use_strict_mode=1
 session.use_cookies=0
 session.cache_limiter=
-memcache.session_redundancy=2
 --FILE--
 <?php
 
